@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Melhor Café</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          width="200px"
+          src="./assets/img/logo.webp"
+          alt="Foto de Café Gourmet"
+        />
+      </a>
+      <h2>Entrar</h2>
+    </header>
+
+    <section
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <form
+        id="loginForm"
+        method="POST"
+        action="login.php"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 10px;
+          padding: 30px;
+          border-radius: 8px;
+          background-color: #fff;
+          box-shadow: 6px 6px 6px 6px rgba(0.1, 0.1, 0.1, 0.1);
+          width: 300px;
+        "
+      >
+        <label for="email" style="font-size: 14px">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          style="
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          "
+        />
+
+        <label for="senha" style="font-size: 14px">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          required
+          style="
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          "
+        />
+
+        <button
+          type="submit"
+          style="
+            padding: 10px;
+            background-color: #8e4a3b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+          "
+        >
+          Entrar
+        </button>       
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Melhor Café | Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      // Correção no id do formulário: 'loginForm' em vez de 'login-form'
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Pegando os valores de email e senha do formulário
+          let email = document.getElementById("email").value;
+          let senha = document.getElementById("senha").value;
+
+          // Simulação de login (pode ser substituída por validação com uma API real ou banco de dados)
+          if (email === "cliente@exemplo.com" && senha === "senha123") {
+            // Armazenando as informações de login no localStorage para simulação
+            let user = {
+              nome: "Cliente",
+              email: "cliente@exemplo.com",
+            };
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            // Vincula o usuário com a compra
+            let compra = {
+              usuario: user,
+              itens: carrinho,
+              total: 0,
+            };
+
+            // Salva os dados da compra no localStorage (ou em um servidor)
+            localStorage.setItem("carrinho", JSON.stringify(compra));
+            window.location.href = "carrinho.html";
+            
+            localStorage.setItem("user", JSON.stringify(user)); // Salva os dados do usuário no localStorage
+            alert("Login bem-sucedido!");
+            window.location.href = "carrinho.html"; // Redireciona para a página do carrinho
+          } else {
+            alert("Usuário ou senha incorretos!");
+          }
+        });
+    </script>
+  </body>
+</html>

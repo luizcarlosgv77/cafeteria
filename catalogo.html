@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Melhor Café - Catalogo</title>
+    <link rel="stylesheet" href="./assets/css/catalogo.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        width="150px"
+        src="./assets/img/logo.webp"
+        alt="Foto de Café Gourmet"
+      />
+      <nav>
+        <ul>
+          <a href="index.html" id="ini">Início</a>
+          <li><a href="#cafe" id="link-cafe">Café Gourmet</a></li>
+          <li><a href="#salgados" id="link-salgados">Salgados Finos</a></li>
+        </ul>
+      </nav>
+      <div id="cart-icon" class="cart-icon" onclick="abrirCarrinho()">
+        🛒
+        <span id="cart-count" class="cart-count">0</span>
+      </div>
+    </header>
+
+    <main id="saibamais">
+      <script>
+        // Recuperar os dados do usuário do localStorage
+        let usuario = JSON.parse(localStorage.getItem("user"))?.nome;
+
+        // Verificar se o usuário está logado e exibir o nome, caso contrário, não exibe nada
+        if (usuario) {
+          // Exibir o nome do usuário e o botão de sair na mesma linha
+          document.write(`
+                  <div style="display: flex; align-items: center; font-size: 16px; justify-content: center; margin-top: 10px">
+                      <p style="margin-right: 10px;">Bem-vindo, ${usuario}!</p>
+                      <a onclick="sair()" style="cursor: pointer; color: #f44336; text-decoration: none; font-size: 16px;">Sair</a>
+                  </div>
+              `);
+        }
+
+        // Função para remover o usuário do localStorage e atualizar a página
+        function sair() {
+          const confirmar = confirm("Tem certeza que deseja sair?");
+          if (confirmar) {
+            // Remover o usuário do localStorage
+            localStorage.removeItem("user");
+            localStorage.removeItem("carrinho");
+            window.location.reload(); // Atualiza a página
+          }
+        }
+      </script>
+      <section id="cafe">
+        <p>Escolha o café gourmet de sua preferência!</p>
+        <div class="card">
+          <img
+            src="https://uniquecafes.com.br/wp-content/uploads/2022/04/Imagem-destaque-drink-Mocha.webp"
+            alt="Café Gourmet 1"
+            style="width: 100%; display: block; margin: 0 auto;"
+          />
+          <h3>Café Mocha</h3>
+          <p>R$ 12,00</p>
+          <button onclick="adicionarCarrinho('Café Mocha', 12)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7VRQcUKA-crbwquyqkFcs_udqOmvcA3iEhA&s"
+            alt="Café Gourmet 2"
+            style="width: 67%; display: block; margin: 0 auto;"
+          />
+          <h3>Café Latte</h3>
+          <p>R$ 10,00</p>
+          <button onclick="adicionarCarrinho('Café Latte', 10)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://perfectdailygrind.com/pt/wp-content/uploads/sites/5/2020/03/Paul-Mordheweyk-1024x850.jpg"
+            alt="Café Gourmet 3"
+            style="width: 80%; display: block; margin: 0 auto;"
+          />
+          <h3>Café Expresso</h3>
+          <p>R$ 8,00</p>
+          <button onclick="adicionarCarrinho('Café Expresso', 8)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </section>
+
+      <section id="salgados">
+        <p>Escolha o salgado fino de sua preferência!</p>
+        <div class="card">
+          <img
+            src="https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop/public/srh_recipes/af836d5e7509040ff9b000bce3427315.jpg?itok=8V2vGxRl"
+            alt="Salgado 1"
+            style="width: 100%; display: block; margin: 0 auto;"
+          />
+          <h3>Esfiha</h3>
+          <p>R$ 6,00</p>
+          <button onclick="adicionarCarrinho('Esfiha', 6)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://cdn.casaeculinaria.com/wp-content/uploads/2023/05/16114400/Massa-de-coxinha.webp"
+            alt="Salgado 2"
+            style="width: 92%; display: block; margin: 0 auto;"
+          />
+          <h3>Coxinha</h3>
+          <p>R$ 5,00</p>
+          <button onclick="adicionarCarrinho('Coxinha', 5)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://guiadacozinha.com.br/wp-content/uploads/2016/12/receitademiniquibe.jpg"
+            alt="Salgado 3"
+            style="width: 93%; display: block; margin: 0 auto;"
+          />
+          <h3>Quibe</h3>
+          <p>R$ 7,00</p>
+          <button onclick="adicionarCarrinho('Quibe', 7)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="cart-screen"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-top: 50px;
+        overflow-y: auto;
+      "
+    >
+      <div
+        style="
+          background-color: white;
+          margin: 0 auto;
+          padding: 20px;
+          width: 80%;
+          max-width: 600px;
+          border-radius: 8px;
+          text-align: center;
+          overflow-y: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <h2>Carrinho de Compras</h2>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+          "
+        >
+          <thead>
+            <tr>
+              <th style="border: 1px solid #ddd; padding: 8px">Produto</th>
+              <th style="border: 1px solid #ddd; padding: 8px">Preço</th>
+              <th style="border: 1px solid #ddd; padding: 8px">Quantidade</th>
+              <th style="border: 1px solid #ddd; padding: 8px">Ação</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items"></tbody>
+        </table>
+        <p id="total" style="margin-top: 20px">Total: R$ 0,00</p>
+        <button
+          onclick="fecharCarrinho()"
+          style="
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+          "
+        >
+          Fechar Carrinho
+        </button>
+        <button
+          id="finalizar-btn"
+          onclick="finalizarCompra()"
+          style="
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+          "
+        >
+          Finalizar Compra
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Melhor Café | Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./assets/js/catalogo.js"></script>
+  </body>
+</html>

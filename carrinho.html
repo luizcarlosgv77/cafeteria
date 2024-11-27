@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho - Melhor Café</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Referência para o arquivo de CSS -->
+    <link rel="stylesheet" href="./assets/css/carrinho.css" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <img
+          width="200px"
+          src="./assets/img/logo.webp"
+          alt="Foto de Café Gourmet"
+        />
+        <h2>Checkout</h2>
+      </header>
+
+      <!-- Exibição dos itens do carrinho -->
+      <section id="produtosCarrinho">
+        <!-- Itens do carrinho serão listados aqui via JavaScript -->
+      </section>
+
+      <!-- Métodos de pagamento -->
+      <section id="metodoPagamento">
+        <h3>Escolha o método de pagamento:</h3>
+        <div>
+          <input type="radio" id="boleto" name="pagamento" value="boleto" />
+          <label for="boleto">
+            <i class="fa fa-file-invoice" aria-hidden="true"></i> Boleto
+          </label>
+
+          <input type="radio" id="pix" name="pagamento" value="pix" />
+          <label for="pix">
+            <i class="fa fa-qrcode" aria-hidden="true"></i> Pix
+          </label>
+
+          <input type="radio" id="cartao" name="pagamento" value="cartão" />
+          <label for="cartao">
+            <i class="fa fa-credit-card" aria-hidden="true"></i> Cartão de
+            Crédito
+          </label>
+        </div>
+      </section>
+
+      <!-- Botões Finalizar e Cancelar Compra -->
+      <button id="finalizar" onclick="finalizarCompra()">
+        Finalizar Compra
+      </button>
+      <button id="cancelar" onclick="cancelarCompra()">Cancelar Compra</button>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Melhor Café | Todos os direitos reservados.</p>
+      </footer>
+    </div>
+
+    <script src="./assets/js/carrinho.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  div {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h2 {
+    font-size: 28px;
+    color: #333;
+  }
+  
+  /* Exibição dos itens do carrinho */
+  #produtosCarrinho {
+    margin-bottom: 20px;
+  }
+  
+  #metodoPagamento {
+    margin-bottom: 20px;
+  }
+  
+  #metodoPagamento h3 {
+    font-size: 22px;
+    color: #333;
+  }
+  
+  #metodoPagamento label {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  /* Botões */
+  button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  button#finalizar {
+    background-color: #8e4a3b;
+    color: white;
+  }
+  
+  button#cancelar {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Rodapé */
+  footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+  }
+  

@@ -1,0 +1,230 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center;  /* Garante que o texto dentro do main fique centralizado */
+    flex-grow: 1; /* Faz com que o main ocupe o máximo de espaço possível */
+}
+
+#saibamais section {
+    display: none;
+}
+
+/* Mostra a seção ativa */
+#saibamais section.active {
+    display: block;
+}
+
+/* Estilo para o link ativo (opcional) */
+nav ul li a.active {
+    font-weight: bold;
+    color: #ff6600;
+}
+
+/* Header */
+header {
+    background-color: #8e4a3b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    margin: 5px;
+}
+
+#home img {
+    max-width: 150px;
+}
+
+.catalogo {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link-catalogo {
+    font-size: 1em;
+    color: #8e4a3b;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid #8e4a3b;
+    border-radius: 5px;
+}
+
+.link-catalogo:hover {
+    background-color: #8e4a3b;
+    color: white;
+}
+
+#ini {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.product-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px; /* Adiciona espaçamento entre os cards */
+}
+
+.product-card {
+    width: 20%; /* Tamanho padrão para desktop */
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px;
+}
+
+.product-card img {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+    color: #8e4a3b;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tela de dispositivos móveis */
+@media (max-width: 600px) {
+    .product-section {
+        padding: 10px; /* Menos padding nos celulares */
+    }
+
+    .product-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
+        margin: 5px 0; /* Margem superior e inferior ajustada */
+    }
+
+    .product-card img {
+        width: 100%; /* Imagem ocupa 100% da largura do cartão */
+    }
+}
+
+/* Tela de tablets ou telas menores */
+@media (max-width: 900px) {
+    .product-card {
+        width: 45%; /* Cartões ocupam 45% da largura */
+    }
+}
+
+/* Tela de laptops e desktops grandes */
+@media (min-width: 1200px) {
+    .product-card {
+        width: 20%; /* Cartões ocupam 20% da largura */
+    }
+}
+
+.call-to-action {
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.call-to-action h2 {
+    color: #8e4a3b;
+}
+
+.call-to-action p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.call-to-action a {
+    font-size: 20px;
+    color: white;
+    background-color: #8e4a3b;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.call-to-action a:hover {
+    background-color: #8e4a3b;
+}
+
+.call-to-action {
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.call-to-action h2 {
+    color: #8e4a3b;
+}
+
+.call-to-action p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.call-to-action a {
+    font-size: 20px;
+    color: white;
+    background-color: #8e4a3b;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.call-to-action a:hover {
+    background-color: #8e4a3b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #8e4a3b;
+    color: white;
+    margin-top: auto; /* Isso garante que o footer ficará no final da página */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
